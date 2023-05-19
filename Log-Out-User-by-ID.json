@@ -1,0 +1,39 @@
+{
+  "name": "Log Out User by ID",
+  "integrationType": "purecloud-data-actions",
+  "actionType": "custom",
+  "config": {
+    "request": {
+      "requestUrlTemplate": "/api/v2/tokens/${input.userId}",
+      "requestType": "DELETE",
+      "headers": {},
+      "requestTemplate": "${input.rawRequest}"
+    },
+    "response": {
+      "translationMap": {},
+      "translationMapDefaults": {},
+      "successTemplate": "${rawResult}"
+    }
+  },
+  "contract": {
+    "input": {
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "output": {
+      "successSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": true
+      }
+    }
+  },
+  "secure": false
+}
